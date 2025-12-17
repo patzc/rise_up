@@ -1,12 +1,9 @@
--- schema_v3.sql
--- Added aid_requests table
-
 CREATE TABLE aid_requests (
-  request_id INT NOT NULL AUTO_INCREMENT,
-  beneficiary_id INT,
-  aid_type VARCHAR(100),
-  reason TEXT,
-  status ENUM('Pending','Approved','Rejected') DEFAULT 'Pending',
-  PRIMARY KEY (request_id),
-  KEY (beneficiary_id)
+    request_id INT PRIMARY KEY AUTO_INCREMENT,
+    beneficiary_id INT NOT NULL,
+    request_type VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL,
+    status VARCHAR(50) DEFAULT 'Pending',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (beneficiary_id) REFERENCES beneficiaries(beneficiary_id)
 );
