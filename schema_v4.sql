@@ -8,7 +8,7 @@ CREATE TABLE trainings (
 );
 
 CREATE TABLE program_enrollments (
-    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
+    program_id INT PRIMARY KEY AUTO_INCREMENT,
     beneficiary_id INT NOT NULL,
     training_id INT NOT NULL,
     enrolment_date DATE DEFAULT CURRENT_DATE,
@@ -16,4 +16,5 @@ CREATE TABLE program_enrollments (
     FOREIGN KEY (beneficiary_id) REFERENCES beneficiaries(beneficiary_id),
     FOREIGN KEY (training_id) REFERENCES trainings(training_id)
 );
+
 
